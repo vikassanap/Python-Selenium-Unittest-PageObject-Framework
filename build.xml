@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Pythonv1" default="mail">
+
+    <property name="target.dir" location="test-reports" />
+    <property name="target.report.dir" location="${target.dir}/report" />
+    <property name="target.screenshot.dir" location="${target.dir}/screenshots" />
+    <property name="target.log.dir" location="logs"/>
+
+    <target name="clean">
+        <delete>
+            <fileset dir="${target.dir}" includes="*.xml"/>
+        </delete>
+        <delete includeemptydirs="true">
+             <fileset dir="${target.report.dir}" includes="**/*"/>
+        </delete>
+        <delete includeemptydirs="true">
+             <fileset dir="${target.screenshot.dir}" includes="**/*"/>
+        </delete>
+    </target>
+
+    <target name="run" depends="clean">
+        <exec executable="python"  output="${target.log.dir}/BuildTestSuite.log">
+            <arg value="testscripts/buildtestsuite.py" />
+        </exec>
+    </target>
+
+    <target name="mail" depends="run">
+        <exec executable="python"  output="${target.log.dir}/Send_mail.log">
+            <arg value="mail/sendmail.py" />
+        </exec>
+    </target>
+
+</project>

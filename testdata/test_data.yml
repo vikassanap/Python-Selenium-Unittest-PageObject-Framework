@@ -1,0 +1,20 @@
+#LoginTests
+lt_username: value
+lt_password: value
+lt_userid: value
+lt_invalid_username: username
+lt_invalid_password: password
+lt_login_error_text: "login error message"
+
+#OtherTests
+mtt_username: username
+mtt_password: password
+
+#Add User
+tenant_id: tenantid
+tenant_name: tenant_ram_name
+tenant_admin: admin_user
+admin_password: admin_password
+admin_password_renter: admin_password
+tenant_email: admin@gmail.com
+tenant_desc: description
